@@ -73,6 +73,7 @@ const puppeteerConfig = {
     '--enable-features=NetworkService',
     '--disable-setuid-sandbox',
     '--no-sandbox',
+    '--disable-dev-shm-usage',
     // Extras
     '--disable-webgl',
     '--disable-threaded-animation',
