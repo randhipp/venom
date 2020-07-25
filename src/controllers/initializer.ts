@@ -95,11 +95,11 @@ export async function create(
   });
 
   console.log(`\n
-▗▄ ▄ ▄  ▄▄▄ ▄   ▄▄▄  ▗▄▄▖▗▄▖ ▗▄▖▄▄▄▖                           
- █▟█▙█  █▄▄ █   █    █ ▐█ █ █ █ █▄▄                           
- ▐█ █▌  █▄▄ ███ ▜▄▛▘ ▜▙▟▀ █   █ █▄▄▖                           
-                                                      
-▄▄▄▖       ▄▄▄▄▄▄▄▄▄▄▄▟▌▀▖     ▗▄▄▖                        
+▗▄ ▄ ▄  ▄▄▄ ▄   ▄▄▄  ▗▄▄▖▗▄▖ ▗▄▖▄▄▄▖
+ █▟█▙█  █▄▄ █   █    █ ▐█ █ █ █ █▄▄
+ ▐█ █▌  █▄▄ ███ ▜▄▛▘ ▜▙▟▀ █   █ █▄▄▖
+
+▄▄▄▖       ▄▄▄▄▄▄▄▄▄▄▄▟▌▀▖     ▗▄▄▖
 ▝▄ ▐▖     ▟▘▐         ▐▌ ▝▙    ▐  ▌ ▄▞▀▀▀▀▀▄▖ ▛▀▄        ▄▘▌
  ▝▄ ▐▖   ▐▘ ▟▖ ▜▀▀▀▀▀▌▐▖  ▝▚▖  ▐  ▙▞▘▗▞▀▀▀▚▖▝▙▛ ▝▜▖    ▗▀  ▌
   ▀▖ ▜  ▗▘ ▟█  ▜     ▝▐▌ ▟▖ ▜▖ ▐  █ ▟▘     ▐▖▝█   ▝▙▖▗▞▘   ▌
@@ -163,8 +163,10 @@ export async function create(
         if (
           err.message ==
           'Protocol error (Runtime.callFunctionOn): Target closed.'
-        )
+        ) {
           spinnies.succeed(session + '-auth', { text: 'Auto closed!' });
+          process.exit();
+        }
       });
 
       mergedOptions.autoClose
